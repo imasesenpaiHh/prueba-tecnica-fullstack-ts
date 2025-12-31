@@ -1,4 +1,18 @@
-/* Estilos básicos para empezar */
+/* 
+ ============================================
+ ARCHIVO: /src/App.css
+ ============================================
+ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  background: #f5f5f5;
+}
 
 .App {
   max-width: 1200px;
@@ -7,10 +21,40 @@
 }
 
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  text-align: center;
+  padding: 20px 0;
   margin-bottom: 30px;
+  border-bottom: 2px solid #ddd;
+}
+
+.controls {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.search-input {
+  flex: 1;
+  min-width: 300px;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.btn-create {
+  padding: 12px 24px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-create:hover {
+  background: #218838;
 }
 
 .product-grid {
@@ -21,9 +65,10 @@ header {
 }
 
 .product-card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  background: white;
+  border-radius: 12px;
   padding: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -35,28 +80,97 @@ header {
   object-fit: contain;
 }
 
-.pagination {
+.product-card h3 {
+  font-size: 16px;
+  min-height: 40px;
+}
+
+.product-card .price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #28a745;
+}
+
+.error {
+  color: #dc3545;
+  text-align: center;
+  padding: 20px;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.7);
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 15px;
-  margin-top: 30px;
+  justify-content: center;
+  z-index: 1000;
 }
 
-button {
-  padding: 10px 20px;
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.form-actions button {
+  flex: 1;
+  padding: 10px;
   border: none;
-  border-radius: 4px;
-  background-color: #007bff;
-  color: white;
+  border-radius: 6px;
   cursor: pointer;
+  font-weight: bold;
 }
 
-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
+.form-actions button[type="submit"] {
+  background: #007bff;
+  color: white;
 }
 
-button:hover:not(:disabled) {
-  background-color: #0056b3;
+.form-actions button[type="button"] {
+  background: #6c757d;
+  color: white;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .controls {
+    flex-direction: column;
+  }
+  
+  .search-input {
+    min-width: 100%;
+  }
 }
